@@ -19,7 +19,7 @@ const link = "https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.mi
 const integrity = "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u";
 
 function Signin() {
-    const url = "http://localhost:8080/login";
+    const url = process.env.BACK_URL;
 
 
 
@@ -44,7 +44,6 @@ function Signin() {
                 console.log(response);
                 const data = await response.json();
                 const success = data.success;
-                // console.log(data);
                 if (success) {
                     sessionStorage.setItem("token", data.accessToken);
                     sessionStorage.setItem("email", data.user.email);
@@ -71,7 +70,7 @@ function Signin() {
     const navigate = useNavigate();
 
     const onSubmit = (data) => {
-        //  console.log(data);
+
 
 
 
@@ -116,14 +115,14 @@ function Signin() {
 
 
                 <div className="bm1">
-                
+
                     <div className="sgn">
                         <div className="bi">
                             <img id="im" src={img} alt="#" />
 
                         </div>
                         <div className="lp">
-                            <form onSubmit={handleSubmit(onSubmit)} className="frm" >
+                            <form onSubmit={handleSubmit(onSubmit)}  >
 
                                 <div className="hd">
                                     <p>Login Account</p>
@@ -146,7 +145,7 @@ function Signin() {
                                     <input type="checkbox" />
                                 </div>
                                 <div className="sbt">
-                                    <button id="bn">Sign In</button>
+                                    <button id="bn" type="submit">Sign In</button>
                                 </div>
                                 <div className="fp" >
                                     <a href="#">Forget password ?</a>
