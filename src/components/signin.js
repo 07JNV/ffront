@@ -15,8 +15,7 @@ import { Helmet } from "react-helmet";
 
 
 
-const link = "https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css";
-const integrity = "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u";
+
 
 function Signin() {
     const url = process.env.BACK_URL;

@@ -5,13 +5,15 @@ import img from "./images/3.png"
 import  "./styles/Signup.css"
 import jwt_decode from "jwt-decode";
 import {useEffect ,useState } from "react";
+import { Helmet } from "react-helmet";
+import padlock from "./images/padlock.png"
+import user from "./images/user.png"
 
-const link = "https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css";
-const integrity = "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u";
+
 
 function Signup() {
  
-  const url="http://localhost:8080/register";
+  const url=process.env.BACK_URL;
 
    function hand(response){
     var ob={};
@@ -41,18 +43,6 @@ function Signup() {
    }
 
 
-  useEffect(() => {
-    /*global google*/
-         google.accounts.id.initialize({
-            client_id:"51985049198-e5urge217oqmlpudtnlmtot3jo5g9e3l.apps.googleusercontent.com",
-            callback:hand
-         });
-
-         google.accounts.id.renderButton(
-            document.getElementById("signupdiv"),
-            {theme:"outline",size:"large"}
-         )
-    },[]);
    
      const {register,handleSubmit,formState:{errors}}=useForm();
      const onSubmit = (data)=> {
@@ -74,10 +64,12 @@ function Signup() {
 
     return (
         <div >
-            <link rel="stylesheet" href={link} integrity={integrity} crossorigin="anonymous" />
-            <div  >
-                <form   onSubmit={handleSubmit(onSubmit)}  >
-                    <div id="box" >
+         
+            {/* <div  >
+                
+                
+                <form   onSubmit={handleSubmit(onSubmit)}  > */}
+                    {/* <div id="box" >
                     <center > 
                       <div> <h1 style={{color:"white"}}>Sign Up </h1></div>
                        <div><img style={{width:"8vw",height:"10vh",borderRadius:"8px"}}src={img} alt="#"/></div>
@@ -124,10 +116,64 @@ function Signup() {
                      </center>
                 
                  
-                    </div>
+                    </div> */}
                  
                     
-                </form>
+                {/* </form>
+            </div> */}
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>signin</title>
+                <link rel="canonical" href="/signin" />
+            </Helmet>
+            <div className="mnb">
+
+
+                <div className="bm1">
+
+                    <div className="sgn">
+                        <div className="bi">
+                            <img id="im" src={img} alt="#" />
+
+                        </div>
+                        <div className="lp">
+                            <form onSubmit={handleSubmit(onSubmit)}  >
+
+                                <div className="hd">
+                                    <p>Login Account</p>
+                                </div>
+                                <div className="cre">
+
+                                    <div className="cred">
+                                        <div className="em">
+                                            <label for="exampleInputEmail1"  ><img id="e" src={user} /></label>
+                                            <input id="emi" type="email" {...register("email")} />
+                                        </div>
+                                        <div className="pw">
+                                            <label for="exampleInputEmail1"  ><img id="e" src={padlock} /></label>
+                                            <input id="pwi" type="password" {...register("password")} />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="re">
+                                    <label>Remember me </label>
+                                    <input type="checkbox" />
+                                </div>
+                                <div className="sbt">
+                                    <button id="bn" type="submit">Sign In</button>
+                                </div>
+                                <div className="fp" >
+                                    <a href="#">Forget password ?</a>
+                                </div>
+                                <div className="da" >
+                                    Don't have account?  <a href="#" >Sign Up</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
 

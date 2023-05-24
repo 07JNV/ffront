@@ -125,6 +125,95 @@ margin-top: 20px;
     margin-left: 141px;
 }
 
+
+@media screen and (min-width: 319px) and (max-width:369px) {
+      
+    
+      .sgn{
+        height: 100%;
+        border-radius: 0px;
+      }
+   .bm1{
+    width: 110%;
+    height: 46rem;
+   }
+   .hd{
+    font-size: 26px;
+   }
+   .bi{
+    height: 291px;
+   }
+   #emi{
+    width: 131px;
+   }
+   #pwi{
+    width: 131px;
+   }
+     .re{
+        margin-left: 92px;
+     }
+     .da{
+        margin-left: 92px;
+     }
+     .fp{
+        margin-left: 92px;
+     }
+     .cre{
+        margin-top: 28px;
+     }
+
+}
+
+@media screen and (min-width: 370px) and (max-width:419px) {
+      
+    
+      .sgn{
+        height: 100%;
+        border-radius: 0px;
+      }
+   .bm1{
+    width: 110%;
+    height: 46rem;
+   }
+   .hd{
+    font-size: 28px;
+   }
+   .bi{
+    height: 291px;
+   }
+   #emi{
+    width: 161px;
+   }
+   #pwi{
+    width: 161px;
+   }
+       .cre{
+        margin-top: 28px;
+     }
+
+}
+
+@media screen and (min-width: 420px) and (max-width:764px) {
+      
+    
+      .sgn{
+        height: 100%;
+        border-radius: 0px;
+      }
+   .bm1{
+    width: 110%;
+    height: 46rem;
+   }
+   .hd{
+    font-size: 28px;
+   }
+   .bi{
+    height: 291px;
+   }
+     
+
+}
+
 @media screen and (min-width: 765px) and (max-width:1020px) {
       
     .bm1{
