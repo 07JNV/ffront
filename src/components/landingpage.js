@@ -71,12 +71,12 @@ useEffect(() => {
 
 
 
-            <div className="mb3"   >
-                <div className="p3"  data-aos="fade-right"  data-aos-anchor-placement="top-center" >
+            <div className="mb3"  data-aos-anchor-placement="top-center"  >
+                <div className="p3"  data-aos="fade-right"   >
                     <img id="i1" src={img} alt="#" />
                     
                 </div>
-                <div className="d3" data-aos="fade-left"  data-aos-anchor-placement="top-center" >
+                <div className="d3" data-aos="fade-left"   >
                     <p>
                         Grab your deposit bonus and get a head start on your
                         trading journey when you join Gorise. Simply opt-in
@@ -91,27 +91,27 @@ useEffect(() => {
             </div>
 
 
-            <div className="mb4">
-                <div className="d4" data-aos="fade-right"  data-aos-anchor-placement="top-center">
+            <div className="mb4" data-aos-anchor-placement="top-center">
+                <div className="d4" data-aos="fade-right"  >
                     <p>
                         Grab your deposit bonus and get a head start on your
                         trading journey when you join Gorise. Simply opt-in
                         and fund your account to be eligible.
                     </p>
                 </div>
-                <div className="p4" data-aos="fade-left"  data-aos-anchor-placement="top-center">
+                <div className="p4" data-aos="fade-left" >
                     <img id="i2" src={img1} alt="#" />
                     
                 </div>
             </div>
 
 
-            <div className="mb5">
-                <div className="p5 " data-aos="fade-right"  data-aos-anchor-placement="top-center">
+            <div className="mb5" data-aos-anchor-placement="top-center">
+                <div className="p5 " data-aos="fade-right"  >
                     <img id="i3" src={img2} alt="#" />
                     
                 </div>
-                <div className="d5" data-aos="fade-left"  data-aos-anchor-placement="top-center">
+                <div className="d5" data-aos="fade-left"   >
                     <p>
                         Grab your deposit bonus and get a head start on your
                         trading journey when you join Gorise. Simply opt-in

@@ -502,211 +502,254 @@ align-items: center;
   
  @media screen and (min-width: 319px) and (max-width:370px) {
    
-    .mb1{
-        height: 50rem;
-     }
-     .p1{
-         font-size: 1.25rem;
-     margin-right: 2rem;
-     }
-     .p3{
-         margin-top: -5rem;
-     margin-left: 5rem;
-     height: 9rem;
- 
-    }
-    .d3{
-     font-size: .75rem;
-    }
-    .mb4{
-     margin-top: 1rem;
-    }
-    .p4{
-     order: 1;
-     margin-left: 5rem;
-     height: 9rem;
-    }
-    .d4{
-     order: 2;
-     font-size: .75rem;
-    }
-   /* .mb5{
-         height: ;
-   } */
-    .p5{
-        margin-top: 2rem;
-        margin-left: 5rem;
-        height: 9rem;
-    }
-    .d5{
- 
-     font-size: .75rem;
-     
-   
-    }
-}
-
-
-
-
-
-@media screen and (min-width: 374px) and (max-width:422px) {
-   
-    .mb1{
-       height: 50rem;
-    }
     .p1{
-        font-size: 1.25rem;
-    margin-right: 2rem;
-    }
-    .p3{
-        margin-top: -5rem;
-    margin-left: 6rem;
-    height: 9rem;
-
-   }
-   .d3{
-    font-size: .75rem;
-   }
-   .mb4{
-    margin-top: 1rem;
-   }
-   .p4{
-    order: 1;
-    margin-left: 6rem;
-    height: 9rem;
-   }
-   .d4{
-    order: 2;
-    font-size: .75rem;
-   }
-  .mb5{
-    justify-content: center;
-    margin-top: 2rem;
-    text-align: center;
-  }
-   .p5{
-  
-    /* margin-left: rem; */
-    height: 9rem;
-   }
-   .d5{
-
-    font-size: .75rem;
-    margin-top: 2rem;
-  
-   }
+        margin-left: 1rem;
+       }
+       .v1{
+        width: 600px;
+        margin-left: 5rem;
+       }
+       .mb1{
+        height: 51rem;
+       }
+       .p3{
+        /* margin-left: 10rem;
+        height:15rem; */
+        text-align: center;
+        height: 53%;
+       }
+    
+       .d3{
+        font-size: .89rem;
+       }
+       #btn{
+        font-size: .7rem;
+        height: 42px;
+        width: 94px;
+       }
+    
+       .mb4{
+        height: 20rem;
+        margin-top: 5rem;
+       }
+       
+       .p4{
+        order: 1;
+        text-align: center;
+        height: 53%;
+       
+       }
+       
+    
+       .d4{
+        order: 2;
+        font-size: .89rem;
+       
+       }
+    
+    
+       .mb5{
+        height: 20rem;
+        margin-top: 1rem;
+       }
+    
+       .p5{
+        text-align: center;
+        height: 53%;
+       }
+       .d5{
+        font-size: .89rem;
+       }
+    
+     
+     
+       .mb6{
+            height: 347px;
+    
+       }
+       .d6{
+        font-size: 42px;
+        height: 100px;
+       }
+       .sl{
+        font-size: 1rem;
+       }
+       .l{
+        height: 63px;
+       }
+       #lk{
+        width: 40px;
+       }
+       .sc{
+        font-size: 1.2rem;
+       }
+       .k{
+        height: 128px;
+       }
+       .mb7{
+        height: 237px;
+       }
+       .mb8{
+        margin-top: 2rem;
+       }
+       .p8{
+        height: 63px;
+       }
+       #la{
+        height: 48px;
+        width: auto;
+       }
+       .p9{
+        font-size: 52px;
+        height: 266px;
+       }
+       .mb9{
+        height: 543px;
+        margin-top: 2rem;
+       }
+       #sg{
+        height:46px;
+        font-size: 1rem;
+        width: 100px;
+       }
+       .mb10{
+        height: 86px;
+       }
+      .sm{
+        margin-left: 11px;
+        width: 300px;
+      }
+      .cr{
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+      #d8{
+        font-size: 1.2rem;
+      }
     }
 
 @media screen and (min-width: 423px) and (max-width:764px) {
-   .mb1{
-    justify-content: center;
-    height: 43rem;
-   }
-   .p1{
-    font-size: 1.25rem;
-    margin-right: 2rem;
-   }
-  
-   .v1{
-    margin-left: 10px;
-    width: 18rem;
-   }
-   .p3{
-    margin-left: 6rem;
-    height: 13rem;
-
-   }
-   .d3{
-    font-size: .75rem;
-   }
-   .p4{
-    order: 1;
-    margin-left: 6rem;
-    height: 13rem;
-   }
-   .d4{
-    order: 2;
-    font-size: .75rem;
-   }
-   
-   .mb5{
-    margin-top: 20px;
-   }
-   .p5{
+    .p1{
+        margin-left: 1rem;
+       }
+       .v1{
+        width: 600px;
+        margin-left: 5rem;
+       }
+       .mb1{
+        height: 51rem;
+       }
+       .p3{
+        /* margin-left: 10rem;
+        height:15rem; */
+        text-align: center;
+        height: 53%;
+       }
     
-    margin-left: 6rem;
-    height: 214px;
-   }
-   #i3{
-    height: 209px;
-   }
-   .d5{
-    height: 104px;
-    font-size: .75rem;
-  
-   }
-    .mb6{
-        height: 382px;
-
-   }
-   .d6{
-    font-size: 44px;
-   }
-   .sl{
-    font-size: 1rem;
-    margin-top: 0px;
-   }
-
-   #bn{
-    font-size: .8rem;
-    height: 39px;
-    width: 112px;
-   }
-   #bn1{
-    font-size: .8rem;
-    height: 39px;
-    width: 112px;
-   }
-   .mb7{
-    height: 115px;
-    margin-top: 30px;
-   }
-   #lk{
-    width: 35px;
-   }
-   .l{
-    height: 52px;
-   }
-   .k{
-    height: 99px;
-    margin-bottom: 0px;
-   }
-
-   .sc{
-    font-size: 1.2rem;
-   }
-  
-   .p9{
-    font-size: 2rem;
-    height: 130px;
-   }
-   .mb9{
-    height: 276px;
-   }
-   #sg{
-    height:43px;
-    width: 118px;
-    font-size: 1rem;
-   }
-   .sm{
-    width: 300px;
-    margin-left: 61px;
-   }
-
-   .cr{
-    font-size: 1.3rem;
-   }
+       .d3{
+        font-size: .89rem;
+       }
+       #btn{
+        font-size: .7rem;
+        height: 42px;
+        width: 94px;
+       }
+    
+       .mb4{
+        height: 20rem;
+        margin-top: 5rem;
+       }
+       
+       .p4{
+        order: 1;
+        text-align: center;
+        height: 53%;
+       
+       }
+       
+    
+       .d4{
+        order: 2;
+        font-size: .89rem;
+       
+       }
+    
+    
+       .mb5{
+        height: 20rem;
+        margin-top: 1rem;
+       }
+    
+       .p5{
+        text-align: center;
+        height: 53%;
+       }
+       .d5{
+        font-size: .89rem;
+       }
+    
+     
+     
+       .mb6{
+            height: 347px;
+    
+       }
+       .d6{
+        font-size: 42px;
+        height: 100px;
+       }
+       .sl{
+        font-size: 1rem;
+       }
+       .l{
+        height: 63px;
+       }
+       #lk{
+        width: 40px;
+       }
+       .sc{
+        font-size: 1.4rem;
+       }
+       .k{
+        height: 128px;
+       }
+       .mb7{
+        height: 237px;
+       }
+       .mb8{
+        margin-top: 2rem;
+       }
+       .p8{
+        height: 63px;
+       }
+       #la{
+        height: 48px;
+        width: auto;
+       }
+       .p9{
+        font-size: 52px;
+        height: 266px;
+       }
+       .mb9{
+        height: 543px;
+        margin-top: 2rem;
+       }
+       #sg{
+        height:46px;
+        font-size: 1rem;
+        width: 100px;
+       }
+       .mb10{
+        height: 86px;
+       }
+      .sm{
+        margin-left: 63px;
+        width: 300px;
+      }
+      .cr{
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
 }
 
 
@@ -723,47 +766,62 @@ align-items: center;
     height: 51rem;
    }
    .p3{
-    margin-left: 10rem;
-    height:15rem;
+    /* margin-left: 10rem;
+    height:15rem; */
+    text-align: center;
+    height: 53%;
    }
 
    .d3{
-    font-size: 1rem;
+    font-size: .89rem;
    }
+   #btn{
+    font-size: .7rem;
+    height: 42px;
+    width: 94px;
+   }
+
+   .mb4{
+    height: 20rem;
+    margin-top: 5rem;
+   }
+   
    .p4{
     order: 1;
-    margin-left: 10rem;
-    height:15rem;
-    margin-top: 10rem;
+    text-align: center;
+    height: 53%;
+   
    }
    
 
    .d4{
     order: 2;
-    font-size: 1rem;
-    margin-top: 2rem;
+    font-size: .89rem;
+   
+   }
+
+
+   .mb5{
+    height: 20rem;
+    margin-top: 5rem;
    }
 
    .p5{
-    margin-left: 10rem;
-    height:15rem;
+    text-align: center;
+    height: 53%;
    }
    .d5{
-    font-size: 1rem;
+    font-size: .89rem;
    }
-   .mb5{
-             margin-top: 21rem;
-   }
-   .mb4{
-    height: 18rem;
-    margin-top: 1rem;
-   }
+
+ 
+ 
    .mb6{
         height: 495px;
 
    }
    .d6{
-    font-size: 72px;
+    font-size: 58px;
    }
    .sl{
     font-size: 1.5rem;
@@ -778,18 +836,21 @@ align-items: center;
     height: 237px;
    }
    .p9{
-    font-size: 4rem;
+    font-size: 58px;
     height: 266px;
    }
    .mb9{
     height: 543px;
    }
    #sg{
-    height:71px;
+    height:46px;
+    font-size: 1rem;
+    width: 100px;
    }
   .sm{
     margin-left: 235px;
   }
+  
 } 
 
 
