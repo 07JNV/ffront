@@ -18,49 +18,9 @@ import { Helmet } from "react-helmet";
 
 
 function Signin() {
-    const url = process.env.BACK_URL;
-
-
-
-    function hand(response) {
-        console.log(response.credential);
-        var userobj = {};
-        userobj = jwt_decode(response.credential);
-        console.log(userobj);
-        var ob = {};
-        ob = { email: userobj.email, password: userobj.sub }
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(ob)
-        };
-        if (Object.keys(ob).length) {
-            console.log("done")
-
-            const func = async () => {
-
-                const response = await fetch(url, requestOptions);
-                console.log(response);
-                const data = await response.json();
-                const success = data.success;
-                if (success) {
-                    sessionStorage.setItem("token", data.accessToken);
-                    sessionStorage.setItem("email", data.user.email);
-                    sessionStorage.setItem("name", data.user.fullName);
-                    console.log(success);
-                    navigate("/user/dashboard", { state: data });
-
-                }
-            }
-
-            func();
-            return;
-        }
-    }
-
-
-
-
+    const back = process.env.REACT_APP_URL;
+    // console.log(back);
+    const url = back+"/users/signin";
 
 
 
@@ -75,6 +35,7 @@ function Signin() {
 
         const requestOptions = {
             method: 'POST',
+           
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         };
@@ -84,15 +45,14 @@ function Signin() {
         const func = async () => {
 
             const response = await fetch(url, requestOptions);
-            console.log(response);
+            // console.log(response);
             const data = await response.json();
-            const success = data.success;
-            console.log(data);
-            if (success) {
+            const token = data.token;
+            console.log(data.token);
+            if (token) {
                 sessionStorage.setItem("token", data.accessToken);
                 sessionStorage.setItem("email", data.user.email);
                 sessionStorage.setItem("name", data.user.fullName);
-                console.log(success);
                 navigate("/user/dashboard", { state: data });
 
             }
@@ -175,15 +135,7 @@ export default Signin;
 
 
 
-// function isObjEmpty (obj) {
-//     return Object.keys(obj).length === 0;
-// }
 
-// var emptyObject = {};
-// var object = {"foo": "bar"};
-
-// console.log(isObjEmpty(emptyObject))
-// console.log(isObjEmpty(object))
 
 
 
