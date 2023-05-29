@@ -19,8 +19,8 @@ import { Helmet } from "react-helmet";
 
 function Signin() {
     const back = process.env.REACT_APP_URL;
-    // console.log(back);
-    const url = back+"/users/signin";
+
+    const url = back + "/users/signin";
 
 
 
@@ -29,13 +29,8 @@ function Signin() {
     const navigate = useNavigate();
 
     const onSubmit = (data) => {
-
-
-
-
         const requestOptions = {
             method: 'POST',
-           
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         };
@@ -45,7 +40,7 @@ function Signin() {
         const func = async () => {
 
             const response = await fetch(url, requestOptions);
-            // console.log(response);
+            console.log(response);
             const data = await response.json();
             const token = data.token;
             console.log(data.token);
