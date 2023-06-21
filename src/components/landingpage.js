@@ -130,10 +130,10 @@ useEffect(() => {
                </div>
             
                <div className="btn2" >
-               <a href="pricing" target="_blank" ><button id="bn">view pricing</button></a>  
+               <a href="pricing"  ><button id="bn">view pricing</button></a>  
                </div>
                <div className="btn3" >
-                 <a href="signup" target="_blank"> <button id="bn1">Get started </button></a>
+                 <a href="signup" > <button id="bn1">Get started </button></a>
                </div>
             </div>
             <div className="mb7" data-aos="fade-up" data-aos-anchor-placement="top-center">
@@ -157,7 +157,7 @@ useEffect(() => {
                             <p id="p9">open your account in 1 minute</p>
                   </div>
                   <div className="btn3" >
-                 <a href="signup" target="_blank"><button id="sg">Sign up ></button></a> 
+                 <a href="signup" ><button id="sg">Sign up ></button></a> 
                </div>
             </div>
                <div className="mb10">

@@ -25,10 +25,9 @@ function Signin() {
     const navigate = useNavigate();
     const back = process.env.REACT_APP_URL;
     const [cookies, setCookie,removeCookie] = useCookies(['email']);
-
-    const url = back + "/users/signin";
-    // const url=process.env.REACT_APP_URL;
-
+    const url = back +"/users/signin";
+    console.log(back)
+console.log(url)
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
