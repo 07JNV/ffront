@@ -2,13 +2,17 @@
 
 import "./styles/Signin.css"
 import img from "./images/li.jpg"
-import padlock from "./images/padlock.png"
-import user from "./images/user.png"
+import padlock from "./images/pss.png"
+import user from "./images/mail.png"
 import { useForm } from "react-hook-form";
-import jwt_decode from "jwt-decode";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+// import { useEffect } from "react";
+import { useCookies } from 'react-cookie';
+
+
+
+
 
 
 
@@ -18,15 +22,16 @@ import { Helmet } from "react-helmet";
 
 
 function Signin() {
+    const navigate = useNavigate();
     const back = process.env.REACT_APP_URL;
+    const [cookies, setCookie,removeCookie] = useCookies(['email']);
 
     const url = back + "/users/signin";
-
+    // const url=process.env.REACT_APP_URL;
 
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const navigate = useNavigate();
 
     const onSubmit = (data) => {
         const requestOptions = {
@@ -43,20 +48,29 @@ function Signin() {
             console.log(response);
             const data = await response.json();
             const token = data.token;
-            console.log(data.token);
+
+            console.log(data);
             if (token) {
-                sessionStorage.setItem("token", data.accessToken);
-                sessionStorage.setItem("email", data.user.email);
-                sessionStorage.setItem("name", data.user.fullName);
+                alert("signin successfully")      
+                // setCookie('email', data.user.email, { path: '/pricing' });
+                // localStorage.setItem('log','true');
+                localStorage.setItem('em',data.user.email);
+                setCookie('email', data.user.email, { path: '/' });
+                setCookie('el', data.user.email, { path: '/pricing' });
                 navigate("/user/dashboard", { state: data });
 
             }
+            
+            if(!token){
+            alert("bad credentials")
+            }
+        
+
         }
 
         func();
 
     }
-
 
     return (
         <div>
@@ -76,36 +90,40 @@ function Signin() {
 
                         </div>
                         <div className="lp">
+                            <div className="hd">
+                                <p>Login Account</p>
+                            </div>
                             <form onSubmit={handleSubmit(onSubmit)}  >
 
-                                <div className="hd">
-                                    <p>Login Account</p>
-                                </div>
-                                <div className="cre">
 
-                                    <div className="cred">
-                                        <div className="em">
-                                            <label for="exampleInputEmail1"  ><img id="e" src={user} /></label>
-                                            <input id="emi" type="email" {...register("email")} />
-                                        </div>
-                                        <div className="pw">
-                                            <label for="exampleInputEmail1"  ><img id="e" src={padlock} /></label>
-                                            <input id="pwi" type="password" {...register("password")} />
-                                        </div>
+
+
+                                <div className="cred">
+
+                                    <div className="eml">
+                                        <div ><img className="ui" alt="#" src={user} /> </div>
+                                        <div ><input className="emil" type="email" {...register("email")} /> </div>
+                                    </div>
+
+                                    <div className="pwl">
+                                    <div  ><img className="ui" alt="#" src={padlock} /> </div>
+                                    <div ><input className="pwil" type="password" {...register("password")} /> </div>
+
                                     </div>
                                 </div>
-                                <div className="re">
+
+                                <div className="rm">
                                     <label>Remember me </label>
                                     <input type="checkbox" />
                                 </div>
-                                <div className="sbt">
-                                    <button id="bn" type="submit">Sign In</button>
+                                <div className="li">
+                                    <button id="lbn" type="submit">Sign In</button>
                                 </div>
                                 <div className="fp" >
-                                    <a href="#">Forget password ?</a>
+                                    <a href="#">Forget password?</a>
                                 </div>
                                 <div className="da" >
-                                    Don't have account?  <a href="#" >Sign Up</a>
+                                    Don't have account?  <a href="/signup" >Sign Up</a>
                                 </div>
                             </form>
                         </div>
@@ -125,7 +143,11 @@ function Signin() {
     );
 }
 
+
+
+
 export default Signin;
+
 
 
 

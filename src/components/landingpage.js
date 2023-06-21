@@ -1,15 +1,15 @@
 
-import video from "./videos/vv.mp4"
-import img from "./videos/ff.jpg"
-import img1 from "./videos/3026.jpg"
-import img2 from "./videos/fs.jpg"
-import lock from "./videos/padlock.png"
-import la from "./videos/la.png"
-import "./home.css"
+import img from "./images/ff.jpg"
+import img1 from "./images/3026.jpg"
+import img2 from "./images/fs.jpg"
+import lock from "./images/padlock.png"
+import la from "./images/la.png"
+import "./styles/home.css"
 import React,{useEffect} from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import {Helmet} from "react-helmet";
+import { SocialIcon } from 'react-social-icons';
 
 
 
@@ -19,7 +19,7 @@ function Home() {
 useEffect(() => {
         AOS.init();
       }, [])
-
+    
     return (
 
         <div >
@@ -57,9 +57,7 @@ useEffect(() => {
                 </div>
                 <div className="v1">
 
-                    {/* <video loop autoPlay muted className="v">
-                        <source src={video} type="video/mp4" />
-                    </video> */}
+                    
                 </div>
             </div>
 
@@ -132,7 +130,7 @@ useEffect(() => {
                </div>
             
                <div className="btn2" >
-                  <button id="bn">view pricing</button>
+               <a href="pricing" target="_blank" ><button id="bn">view pricing</button></a>  
                </div>
                <div className="btn3" >
                  <a href="signup" target="_blank"> <button id="bn1">Get started </button></a>
@@ -159,19 +157,20 @@ useEffect(() => {
                             <p id="p9">open your account in 1 minute</p>
                   </div>
                   <div className="btn3" >
-                  <button id="sg">Sign up ></button>
+                 <a href="signup" target="_blank"><button id="sg">Sign up ></button></a> 
                </div>
             </div>
                <div className="mb10">
                 <div className="cr"><p> &#169;All right reserve,Built with   &#10084; in India</p></div>
                </div>
+               
                <div className="sm">
-               <a href="#" class="fa fa-facebook"></a>
-               <a href="#" class="fa fa-twitter"></a>
-               <a href="#" class="fa fa-instagram"></a>
-               <a href="#" class="fa fa-youtube"></a>
-               <a href="#" class="fa fa-linkedin"></a>
-               <a href="#" class="fa fa-telegram"></a>
+               <SocialIcon url="https://twitter.com/jaketrent" />
+               <SocialIcon url="https://instagram.com/jaketrent" />
+               <SocialIcon url="https://youtube.com/jaketrent" />
+               <SocialIcon url="https://facebook.com/jaketrent" />
+
+               
                </div>
         </div>
     );
