@@ -11,6 +11,7 @@
    background-size: cover;
    box-sizing: border-box;
    column-gap: 12rem;
+   overflow-x: hidden;
 }
 
 

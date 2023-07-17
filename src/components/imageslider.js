@@ -134,7 +134,6 @@ const ImageSlider = ({ slides }) => {
             const data = await response.json();
             console.log(data);
             setDep(dep+1);
-        removeCookie('el', { path: '/pricing' });
 
         }
         catch (error) {
