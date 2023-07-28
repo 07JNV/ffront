@@ -44,8 +44,9 @@ function Dash(){
         im=img;
 
     const handleLogout = () => {
-        removeCookie('email', { path: '/' });
-        removeCookie('el', { path: '/pricing' });
+        // removeCookie('email', { path: '/' });
+        // removeCookie('el', { path: '/pricing' });
+        window.localStorage.removeItem('em');
         navigate('/');
 
       };

@@ -18,7 +18,6 @@ import { Helmet } from "react-helmet";
 
 function Signup() {
     const back = process.env.REACT_APP_URL;
-console.log(typeof back)
     const url = back + "/users/signup";
     // const url=process.env.REACT_APP_URL;
 

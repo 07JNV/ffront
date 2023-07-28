@@ -68,7 +68,8 @@ const ImageSlider = ({ slides }) => {
 
     const [cookies,removeCookie] = useCookies('el');
     
-    const em=cookies.el; 
+    const em=localStorage.getItem('em');
+    console.log("email is"+em); 
 
     const price = slides[Index].price
     const att = { "email": em, "price": price };
@@ -87,7 +88,8 @@ const ImageSlider = ({ slides }) => {
     const fetchdata = async () => {
         try {
             const queryParams = new URLSearchParams(params).toString();
-            const url1 = url+`${queryParams}`;
+           
+            const url1=`${url}/users/buy?email=${encodeURIComponent(em)}`;
             const requestOptions = {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
@@ -130,7 +132,7 @@ const ImageSlider = ({ slides }) => {
 
 
         try {
-            const response = await fetch(url, requestOptions);
+            const response = await fetch(url+`/users/buy`, requestOptions);
             const data = await response.json();
             console.log(data);
             setDep(dep+1);
@@ -154,13 +156,11 @@ const ImageSlider = ({ slides }) => {
         fetchdata();
     }, [dep])
 
-//     useEffect(() => {
-//   window.location.reload();
 
-//     }, [cookies.email])
-    console.log(cookies.el);
     
      let content;
+
+     console.log(res);
 
 
     if(res.hasOwnProperty(slides[Index].name)){
