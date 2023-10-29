@@ -10,6 +10,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import {Helmet} from "react-helmet";
 import { SocialIcon } from 'react-social-icons';
+import Footer from "./footer.js"
+import Navbar from './navbar';
+
 
 
 
@@ -23,12 +26,14 @@ useEffect(() => {
     return (
 
         <div >
+
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>home</title>
                 <link rel="canonical" href="/home" />
             </Helmet>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+    <Navbar/>
 
 
 
@@ -160,18 +165,8 @@ useEffect(() => {
                  <a href="signup" ><button id="sg">Sign up ></button></a> 
                </div>
             </div>
-               <div className="mb10">
-                <div className="cr"><p> &#169;All right reserve,Built with   &#10084; in India</p></div>
-               </div>
-               
-               <div className="sm">
-               <SocialIcon url="https://twitter.com/jaketrent" />
-               <SocialIcon url="https://instagram.com/jaketrent" />
-               <SocialIcon url="https://youtube.com/jaketrent" />
-               <SocialIcon url="https://facebook.com/jaketrent" />
-
-               
-               </div>
+              
+               <Footer/>
         </div>
     );
 }

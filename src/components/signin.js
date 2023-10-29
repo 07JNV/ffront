@@ -1,43 +1,84 @@
-
-
-import "./styles/Signin.css"
-import img from "./images/li.jpg"
-import padlock from "./images/pss.png"
-import user from "./images/mail.png"
-import { useForm } from "react-hook-form";
-import { useNavigate ,Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
-// import { useEffect } from "react";
-import { useCookies } from 'react-cookie';
+import React, { useEffect, useState } from 'react';
+import './styles/Signup.css'
+import sdim from "./images/i3.png"
+import clogo from "./images/clogo.png"
+import { useNavigate} from "react-router-dom";
 
 
 
+const SignUpForm = () => {
 
-
-
-
-
-
-
-
-
-function Signin() {
     const navigate = useNavigate();
+
+    const [formData, setFormData] = useState({
+        username: '',
+        email: '',
+        password: '',
+    });
+
+
+    const handleLogin = () => {
+      
+        navigate("/")
+      };
+
+   
+
+
+    const [Token, setToken] = useState(null);
+
+    const [load, setLoad] = useState()
+    const [a, setA] = useState(false);
+
+
+    const handleload = () => {
+        setA(!a);
+    }
+
+    useEffect(() => {
+
+
+        if (Token) {
+            setLoad(false);
+            handleLogin();
+            
+        } else {
+            setLoad(true);
+
+        }
+
+
+
+    }, [Token])
+
+
+    console.log(load);
+
+
+
     const back = process.env.REACT_APP_URL;
-    const [cookies, setCookie,removeCookie] = useCookies(['email']);
-    const url = back +"/users/signin";
-    console.log(back)
-console.log(url)
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const url = back + "/users/signin";
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
 
-    const onSubmit = (data) => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            body: JSON.stringify(formData)
         };
+
+
+
 
 
 
@@ -47,106 +88,76 @@ console.log(url)
             console.log(response);
             const data = await response.json();
             const token = data.token;
-
-            console.log(data);
+            console.log(token)
             if (token) {
-                alert("signin successfully")      
-                // setCookie('email', data.user.email, { path: '/pricing' });
-                // localStorage.setItem('log','true');
-                localStorage.setItem('em',data.user.email);
-                setCookie('email', data.user.email, { path: '/' });
-                setCookie('el', data.user.email, { path: '/pricing' });
-                navigate("/user/dashboard", { state: data });
+                sessionStorage.setItem('email', data.user.email);
+                setToken(token);
 
             }
-            
-            if(!token){
-            alert("bad credentials")
+            if (!token) {
+
             }
-        
+
 
         }
 
         func();
-
-    }
+    };
 
     return (
-        <div>
-            <Helmet>
-                <meta charSet="utf-8" />
-                <title>signin</title>
-                <link rel="canonical" href="/signin" />
-            </Helmet>
-            <div className="mnb">
+        <>
 
-
-                <div className="bm1">
-
-                    <div className="sgn">
-                        <div className="bi">
-                            <img id="im" src={img} alt="#" />
-
-                        </div>
-                        <div className="lp">
-                            <div className="hd">
-                                <p>Login Account</p>
-                            </div>
-                            <form onSubmit={handleSubmit(onSubmit)}  >
-
-
-
-
-                                <div className="cred">
-
-                                    <div className="eml">
-                                        <div ><img className="ui" alt="#" src={user} /> </div>
-                                        <div ><input className="emil" type="email" {...register("email")} /> </div>
-                                    </div>
-
-                                    <div className="pwl">
-                                    <div  ><img className="ui" alt="#" src={padlock} /> </div>
-                                    <div ><input className="pwil" type="password" {...register("password")} /> </div>
-
-                                    </div>
-                                </div>
-
-                                <div className="rm">
-                                    <label>Remember me </label>
-                                    <input type="checkbox" />
-                                </div>
-                                <div className="li">
-                                    <button id="lbn" type="submit">Sign In</button>
-                                </div>
-                                <div className="fp" >
-                                    <a href="#">Forget password?</a>
-                                </div>
-                                <div className="da" >
-                                    Don't have account?  <a href="/signup" >Sign Up</a>
-                                </div>
-                            </form>
-                        </div>
+            <div className='mb'  >
+                <div className='credIp'>
+                    <h2 className='signhd'>LOGIN </h2>
+                    <div className='logo'>
+                        <img id='clogo' src={clogo} />
                     </div>
-
+                    <form onSubmit={handleSubmit}>
+                        <div className='email'>
+                            <label htmlFor="email">Email:</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className='pass'>
+                            <label htmlFor="password">Password:</label>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                value={formData.password}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className='sbtn'>
+                            <button id='sbt' type="submit" onClick={handleload}>Sign In</button>
+                        </div>
+                        <div className='al'>
+                            <a href='/signup' id='al'>
+                                Don't have account?
+                            </a>
+                        </div>
+                    </form>
                 </div>
-
+                <div className='sdpc'>
+                    <img id='sdpc' src={sdim} alt='#' />
+                </div>
             </div>
+            {a && load && (<div className="mloader">
+                <p className="loader">
+                </p>
+            </div>)}
+            
+            
+        </>);
+};
 
-
-
-
-
-        </div>
-
-
-    );
-}
-
-
-
-
-export default Signin;
-
+export default SignUpForm;
 
 
 
