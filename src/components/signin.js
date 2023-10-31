@@ -3,7 +3,8 @@ import './styles/Signup.css'
 import sdim from "./images/i3.png"
 import clogo from "./images/clogo.png"
 import { useNavigate} from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SignUpForm = () => {
@@ -30,9 +31,16 @@ const SignUpForm = () => {
     const [load, setLoad] = useState()
     const [a, setA] = useState(false);
 
-
+     
     const handleload = () => {
         setA(!a);
+        // if(Token){
+        //     toast("Logged In Successfully")
+
+        // }else{
+        //     toast("Logging You In")
+        // }
+       
     }
 
     useEffect(() => {
@@ -53,6 +61,9 @@ const SignUpForm = () => {
 
 
     console.log(load);
+
+
+    const notify = () => toast("Wow so easy!");
 
 
 
@@ -136,6 +147,7 @@ const SignUpForm = () => {
                         </div>
                         <div className='sbtn'>
                             <button id='sbt' type="submit" onClick={handleload}>Sign In</button>
+                       
                         </div>
                         <div className='al'>
                             <a href='/signup' id='al'>
