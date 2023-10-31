@@ -8,21 +8,23 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Navbar = () => {
-    
-const navigate =useNavigate();
-   
-    const logout=()=>{
+
+    const navigate = useNavigate();
+
+    const logout = () => {
         sessionStorage.removeItem("email");
-        if(sessionStorage.length==0){
-            toast("Logout successfully")
+        if (sessionStorage.length === 0) {
+            toast.info('You have successfully logged out.');
 
         }
-        window.location.reload();
-        navigate("/")
+        setTimeout(() => {
+            window.location.reload();
+            navigate("/");
+        }, 3000);
     }
 
-   
-    
+
+
     return (
         <div>
             <div className='navbar'>
@@ -30,33 +32,31 @@ const navigate =useNavigate();
                     <img id='clogo' src={clogo} />
                 </div>
                 <div className='contactus'>
-                    {sessionStorage.length===0 && (<a href="/signin">
+                    {sessionStorage.length === 0 && (<a href="/signin">
                         <button id='conbtn' >
                             LOGIN/REGISTER
                         </button>
                     </a>)}
 
-                    { sessionStorage.length>0 &&
-                         (
+                    {sessionStorage.length > 0 &&
+                        (
                             <button id="conbtn" onClick={logout}>
                                 LOGOUT
                             </button>
                         )
                     }
                     <ToastContainer
-position="top-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
-/>
-{/* Same as */}
-<ToastContainer />
+                        position="bottom-right"
+                        autoClose={2000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                    />
 
                 </div>
             </div>

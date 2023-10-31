@@ -33,13 +33,14 @@ const SignUpForm = () => {
 
      
     const handleload = () => {
+        if(sessionStorage.length>0){
+            toast.success('Login successful!', {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 2000 // Auto close the toast after 3 seconds
+              });
+        }
         setA(!a);
-        // if(Token){
-        //     toast("Logged In Successfully")
-
-        // }else{
-        //     toast("Logging You In")
-        // }
+        
        
     }
 
@@ -48,7 +49,10 @@ const SignUpForm = () => {
 
         if (Token) {
             setLoad(false);
+           setTimeout(() => {
             handleLogin();
+            
+           }, 5000); 
             
         } else {
             setLoad(true);
@@ -119,6 +123,7 @@ const SignUpForm = () => {
         <>
 
             <div className='mb'  >
+
                 <div className='credIp'>
                     <h2 className='signhd'>LOGIN </h2>
                     <div className='logo'>
@@ -146,7 +151,8 @@ const SignUpForm = () => {
                             />
                         </div>
                         <div className='sbtn'>
-                            <button id='sbt' type="submit" onClick={handleload}>Sign In</button>
+                            <button id='sbt' type="submit" onClick={handleload} >Sign In</button>
+                            <ToastContainer />
                        
                         </div>
                         <div className='al'>
