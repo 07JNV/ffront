@@ -117,10 +117,33 @@
    align-items: center;
 }
 
+.scfb{
+    width: 100%;
+    padding-right: 0;
+}
+
 .fcfb{
     font-size: 20px;
     padding-left: 0;
     padding-top: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.pfsb{
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.sb{
+    font-size: 10px;
+}
+
+.fbtb{
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
 }
 }
 
