@@ -11,6 +11,7 @@
     "aos": "^2.3.4",
     "axios": "^1.5.1",
     "circular-json": "^0.5.9",
+    "classnames": "^2.3.2",
     "components": "^0.1.0",
     "deploy": "^1.0.3",
     "jwt-decode": "^3.1.2",
