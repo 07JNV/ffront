@@ -2,6 +2,7 @@ import "./styles/homepage.css"
 import Footer from "./footer.js"
 import Navbar from "./navbar.js"
 import Feedback from "./feedback.js"
+import invest from "./images/investers.png"
 
 
 
@@ -30,6 +31,7 @@ function HomePage() {
                        Backed By Top Investers And Founders
                     
              </div>
+           
 
 
              
@@ -39,24 +41,21 @@ function HomePage() {
 
              </div>
 
+             <div className="top_investers">
+             <img id="tinvest" src={invest} alt="#"/>
+
+             </div>
+
            
              <div className="fb">
              
 
              </div>
-             <div className="ffb">
+             {/* <div className="ffb"> */}
              <Feedback/>
 
-             </div>
-             <div className="sxb">
-
-             </div>
-             <div className="svb">
-
+             {/* </div> */}
             
-            
-
-             </div>
              <Footer/>
             
         </div>

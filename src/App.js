@@ -7,6 +7,7 @@ import Dashboard from './components/dashboard';
 import Stokes from './components/Stokes';
 import CryptoPriceGraph from './components/cryptopricegraph';
 import HomePage from './components/homepage.js';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
