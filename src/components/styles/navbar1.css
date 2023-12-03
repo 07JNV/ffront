@@ -1,0 +1,121 @@
+.mnav {
+   
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    padding-left: 5%;
+    column-gap: 50%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-bottom: 2px solid black;
+     width:100%;
+
+
+   
+}
+
+.navlogo {
+height: 100%;
+text-align: left;
+
+}
+
+.navlinks {
+    height: 100%;
+    float: right;
+    gap: 17px;
+    display: flex;
+    text-align: center;
+    margin-top: 34px;
+    font-size: 17px;
+    
+   
+    
+
+
+
+
+
+
+}
+
+.aref{
+    text-decoration: none;
+    color: black;
+}
+.navlinks p {
+    margin-top: 0px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.navlogo img {
+   height: 70%;
+    width: auto;
+}
+
+@media only screen and (max-width: 780px) {
+    .mnav{
+        column-gap: 29%;
+    }
+}
+
+.notshow{
+    display: none;
+}
+
+
+.menuicon{
+    display: none;
+}
+
+@media only screen  and (max-width:426px){
+    .aref{
+        display: none;
+    }
+
+    .navlinks{
+        margin-top: 11px;
+        width: 167px;
+        
+    }
+
+    .menuicon{
+        display: block;
+        float: right;
+        height: 100%;
+        width: 100%;
+        text-align: right;
+        
+        
+
+    }
+
+    .menuicon img{
+        height: 50%;
+        width: auto;
+    }
+
+    .mnav{
+        column-gap: 13%;
+    }
+
+    .notshow{
+        display: block;
+        z-index: 1;
+        position: absolute;
+       
+        margin-top: 47px;
+        background-color: rgb(111, 111, 246);
+        width: 128px;
+        height: 200px;
+        text-decoration: none;
+        border-radius: 10px;
+        color: black;
+        flex-direction: row;
+        
+    }
+
+   
+
+}

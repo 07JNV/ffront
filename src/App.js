@@ -7,6 +7,7 @@ import Dashboard from './components/dashboard';
 import Stokes from './components/Stokes';
 import CryptoPriceGraph from './components/cryptopricegraph';
 import HomePage from './components/homepage.js';
+import Nav  from "./components/navbar1.js"
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="pricing" element={<Stokes/>} />
         <Route exact path="user/dashboard" element={<Dashboard/>} />
         <Route exact path="/cgraph" element={<CryptoPriceGraph/>} />
+        <Route exact path="/nav" element={<Nav/>} />
     
 
       

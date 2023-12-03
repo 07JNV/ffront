@@ -3,6 +3,7 @@ import Footer from "./footer.js"
 import Navbar from "./navbar.js"
 import Feedback from "./feedback.js"
 import invest from "./images/investers.png"
+import Nav from "./navbar1.js"
 
 
 
@@ -12,7 +13,7 @@ function HomePage() {
     
     return (
         <div className="bb">
-        <Navbar/>
+        <Nav/>
             <div className="fb">
                 <div className="fcfb">Every stock needs a stroder</div>
                 <div className="scfb"> <img id="scfb" src="https://front.page/assets/4805b78b.webp" /></div>

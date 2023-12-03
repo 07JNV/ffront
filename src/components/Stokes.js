@@ -1,14 +1,15 @@
 
 import Footer from "./footer.js"
-import Navbar from "./navbar";
+
 import Crypto from "./crypto";
+import Nav from "./navbar1.js"
 
 
 function Stokes() {
     return (
         <div >
         
-            <Navbar />
+            <Nav />
             <Crypto />
             <Footer />
         </div>
