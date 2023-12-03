@@ -14,8 +14,8 @@ function Crypto() {
     const [Cryall, setCryall] = useState(false);
 
     const [Hide, setHide] = useState(false);
-    const wid = Hide ? { width: "800px", backgroundColor: "#1b1b1b", color: "white", borderRadius: "10px" } : {};
-   
+    const wid = Hide ? { width: "80%", backgroundColor: "#1b1b1b", color: "white", borderRadius: "10px",marginLeft:"10%" } : {};
+
 
 
 
@@ -77,85 +77,85 @@ function Crypto() {
     // doing buying part
 
 
-  const url2= process.env.REACT_APP_URL;
-  const navigate = useNavigate();
+    const url2 = process.env.REACT_APP_URL;
+    const navigate = useNavigate();
 
-  const [res, setres] = useState({});
-  const email =sessionStorage.getItem("email");
+    const [res, setres] = useState({});
+    const email = sessionStorage.getItem("email");
 
-  const [dep, setDep] = useState(0)
-
-
-
-  const fetchdata = async () => {
-    try {
-     
-       
-        const url1=`${url2}/users/buy?email=${encodeURIComponent(email)}`;
-        const requestOptions = {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-        };
-        const response = await fetch(url1, requestOptions);
-        const data = await response.json();
-    //    console.log(data.user.crypto)
-        setres(data.user.crypto);
-
-    }
-    catch (error) {
-        console.log("error in fetching data", error);
-    }
-}
-  
+    const [dep, setDep] = useState(0)
 
 
-  
 
-    const handleBuy = async (name,price) => {
-        const att = { "email": email, "price": price };
-        console.log(name);
-
-        if(sessionStorage.length>0){
-        const bs = {};
-        Object.assign(bs, { N: name });
-        let crypto = {
-            ...att,
-            ...bs,
-        };
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(crypto)
-        };
-
-
+    const fetchdata = async () => {
         try {
-            const response = await fetch(url2+`/users/buy`, requestOptions);
+
+
+            const url1 = `${url2}/users/buy?email=${encodeURIComponent(email)}`;
+            const requestOptions = {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' },
+            };
+            const response = await fetch(url1, requestOptions);
             const data = await response.json();
-            console.log(data);
-            setDep(dep+1);
+
+            setres(data.user.crypto);
 
         }
         catch (error) {
             console.log("error in fetching data", error);
         }
-    }else{
-         navigate('/signin');
     }
 
- }
-
-
-
- useEffect(() => {
-    fetchdata();
-}, [dep])
 
 
 
 
+    const handleBuy = async (name, price) => {
+        const att = { "email": email, "price": price };
+        console.log(name);
 
-   
+        if (sessionStorage.length > 0) {
+            const bs = {};
+            Object.assign(bs, { N: name });
+            let crypto = {
+                ...att,
+                ...bs,
+            };
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(crypto)
+            };
+
+
+            try {
+                const response = await fetch(url2 + `/users/buy`, requestOptions);
+                const data = await response.json();
+                console.log(data);
+                setDep(dep + 1);
+
+            }
+            catch (error) {
+                console.log("error in fetching data", error);
+            }
+        } else {
+            navigate('/signin');
+        }
+
+    }
+
+
+
+    useEffect(() => {
+        fetchdata();
+    }, [dep])
+
+
+
+
+
+
 
 
 
@@ -168,7 +168,6 @@ function Crypto() {
 
 
 
-    console.log(Hide)
 
 
 
@@ -242,7 +241,7 @@ function Crypto() {
                 {Hide && (<p style={{ cursor: "pointer", color: "blue" }} onClick={showAll}> Hide</p>)}
             </div>
 
-            <ul style={wid}>
+            <ul style={wid} className="view_all_list">
                 {Hide && data.length > 0 && data.map((item, index) => (
                     <div style={{ display: "flex", flexDirection: "row", fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif" }}>
                         <div style={{ width: "50%", borderBottom: "2px solid white", marginTop: "10px" }}>
@@ -253,8 +252,8 @@ function Crypto() {
                         <div style={{ borderBottom: "2px solid white", width: "50%", fontWeight: "200" }}>
                             <p> Rank: {item.rank}</p>
                             <p> Name: {item.name}</p>
-                            {!res.hasOwnProperty(item.name)&&<button style={{ borderRadius: "10px", background: "green", cursor: "pointer", height: "40px", width: "100px" }}  onClick={() => handleBuy(item.name, parseFloat(item.price).toFixed(2))}>Buy Now</button>}
-                            {res.hasOwnProperty(item.name)&&<p style={{textAlign:"center"}}>purchased</p>}
+                            {!res.hasOwnProperty(item.name) && <button style={{ borderRadius: "10px", background: "green", cursor: "pointer", height: "40px", width: "100px" }} onClick={() => handleBuy(item.name, parseFloat(item.price).toFixed(2))}>Buy Now</button>}
+                            {res.hasOwnProperty(item.name) && <p style={{ textAlign: "center" }}>purchased</p>}
                         </div>
                     </div>
                 ))}
