@@ -60,7 +60,7 @@ function Nav() {
 
             {show && (
                 <div className="notshow">
-                    <div className="icon_items" style={{marginTop:"25px"}} ><div className="icon_itemc"><a style={{ textDecoration: "none", color: "white", marginTop: "10px" }} href="/">Home</a></div></div>
+                    <div className="icon_items"  ><div className="icon_itemc"><a style={{ textDecoration: "none", color: "white", marginTop: "10px" }} href="/">Home</a></div></div>
                     <div className="icon_items"><div className="icon_itemc"><a style={{ textDecoration: "none", color: "white", marginTop: "10px" }} href="/contact">Contact</a></div></div>
                     <div className="icon_items"><div className="icon_itemc"><a style={{ textDecoration: "none", color: "white", marginTop: "10px" }} href="/pricing">Pricing</a></div></div>
                     <div className="icon_items"><div className="icon_itemc"> <a style={{ textDecoration: "none", color: "white", marginTop: "10px" }} href="/news">News</a></div></div>
