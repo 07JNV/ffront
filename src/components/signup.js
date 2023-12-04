@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './styles/Signup.css'
 import sdim from "./images/i3.png"
 import clogo from "./images/clogo.png"
+import Nav from "./navbar1.js"
 
 
 const SignUpForm = () => {
@@ -47,6 +48,7 @@ const SignUpForm = () => {
 
   return (
     <>
+    <Nav/>
       <div className='mb'  >
         <div className='credIp'>
           <h2 className='signhd'>Registration form</h2>

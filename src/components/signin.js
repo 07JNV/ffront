@@ -5,6 +5,8 @@ import clogo from "./images/clogo.png"
 import { useNavigate} from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Nav from "./navbar1.js"
+
 
 
 const SignUpForm = () => {
@@ -121,6 +123,7 @@ const SignUpForm = () => {
 
     return (
         <>
+        <Nav/>
 
             <div className='mb'  >
 
