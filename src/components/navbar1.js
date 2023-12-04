@@ -49,20 +49,6 @@ function Nav() {
                     <img src={menuicon} alt="#" />
                 </div>
 
-                {show && (
-                    <div className="notshow">
-                        <ul >
-                        <li><a style={{textDecoration:"none",color:"black"}} href="/">Home</a></li>
-
-                            <li><a style={{textDecoration:"none",color:"black"}} href="/contact">Contact</a></li>
-                            <li><a style={{textDecoration:"none",color:"black"}} href="/pricing">Pricing</a></li>
-                           <li> <a style={{textDecoration:"none",color:"black"}} href="/news">News</a></li>
-                            {(sessionStorage.length === 0) && (<li><a  style={{textDecoration:"none",color:"black"}}href="/SignIn">SignIn</a></li>)}
-                            {(sessionStorage.length > 0) && (<li><p  style={{textDecoration:"none",color:"black"}}onClick={handleLogout}>Logout</p></li>)}
-
-                        </ul>
-                    </div>
-                )}
                 <a className="aref" href="/home">Home</a>
 
                 <a className="aref" href="/contact">Contact</a>
@@ -71,6 +57,17 @@ function Nav() {
                 {(sessionStorage.length === 0) && (<a className="aref" href="/SignIn">SignIn</a>)}
                 {(sessionStorage.length > 0) && (<p className="aref" onClick={handleLogout}>Logout</p>)}
             </div>
+
+            {show && (
+                <div className="notshow">
+                    <div className="icon_items" style={{marginTop:"25px"}} ><div className="icon_itemc"><a style={{ textDecoration: "none", color: "white", marginTop: "10px" }} href="/">Home</a></div></div>
+                    <div className="icon_items"><div className="icon_itemc"><a style={{ textDecoration: "none", color: "white", marginTop: "10px" }} href="/contact">Contact</a></div></div>
+                    <div className="icon_items"><div className="icon_itemc"><a style={{ textDecoration: "none", color: "white", marginTop: "10px" }} href="/pricing">Pricing</a></div></div>
+                    <div className="icon_items"><div className="icon_itemc"> <a style={{ textDecoration: "none", color: "white", marginTop: "10px" }} href="/news">News</a></div></div>
+                    {(sessionStorage.length === 0) && (<div className="icon_items"><div className="icon_itemc"><a style={{ textDecoration: "none", color: "white" }} href="/SignIn">SignIn</a></div></div>)}
+                    {(sessionStorage.length > 0) && (<div className="icon_items"><div className="icon_itemc"><p style={{ textDecoration: "none", color: "white" }} onClick={handleLogout}>Logout</p></div></div>)}
+                </div>
+            )}
             <ToastContainer
                 position="bottom-right"
                 autoClose={2000}
