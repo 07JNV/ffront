@@ -41,7 +41,7 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-  
+
 .newsimg {
     width: 35%;
     display: flex;
@@ -67,6 +67,7 @@
     cursor: pointer;
     background-color: blue;
     color: white;
+    border-radius: 8px;
   
 }
 
