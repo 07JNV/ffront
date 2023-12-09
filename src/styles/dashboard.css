@@ -8,6 +8,8 @@
 
 }
 
+
+
 .pinfo{
     padding-top: 20px;
     align-items: center;
@@ -31,30 +33,25 @@
 
 
 .pur{
-    margin-top: 20px;
-    padding-top: 10px;
+   display: flex;
+   flex-wrap: wrap;
+   padding: 0 10%;
 
 }
 
 .pch{
     font-size: 23px;
     text-align: center;
-    /* font-display: ; */
     color: rgb(36, 36, 84);
     rotate: 90;
 
 }
 
 .pcinfo{
-    display: flex;
-    flex-direction: row;
-    column-gap: 10%;
-    margin-top: 10px;
-   
-    font-size: 17px;
-   width: 50%;
-    margin-left: 25%;
-    border: 1px solid black;
+    width: 33.333333%;
+    box-shadow: 0 4px 8px 0 rgba(3, 3, 3, 1.2), 0 9px 105px 0 rgba(0, 0, 0, 0.19);
+   /* background-color: aqua; */
+  
 }
 
 .pnv{
@@ -66,4 +63,13 @@
 
 .ce{
     margin-left: 35%;
+}
+
+
+@media only screen and (max-width: 765px) {
+.pcinfo{
+    width: 50%;
+    font-size: 12px;
+}
+    
 }

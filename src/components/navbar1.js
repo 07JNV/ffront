@@ -49,7 +49,7 @@ function Nav() {
                     <img src={menuicon} alt="#" />
                 </div>
                 <a className="aref" href="/home">Home</a>
-                <a className="aref" href="/contact">Contact</a>
+                <a className="aref" href="/user/dashboard">Dashboard</a>
                 <a className="aref" href="/pricing">Pricing</a>
                 <a className="aref" href="/news">News</a>
                 {(sessionStorage.length === 0) && (<a href="/SignIn"><button id="conbtn" className="aref">SignIn</button></a>)}
@@ -59,7 +59,7 @@ function Nav() {
             {show && (
                 <div className="notshow">
                     <div className="icon_items"  ><div className="icon_itemc"><a style={{ textDecoration: "none", color: "white", marginTop: "10px" }} href="/">Home</a></div></div>
-                    <div className="icon_items"><div className="icon_itemc"><a style={{ textDecoration: "none", color: "white", marginTop: "10px" }} href="/contact">Contact</a></div></div>
+                    <div className="icon_items"><div className="icon_itemc"><a style={{ textDecoration: "none", color: "white", marginTop: "10px" }} href="/user/dashboard">Dashboard</a></div></div>
                     <div className="icon_items"><div className="icon_itemc"><a style={{ textDecoration: "none", color: "white", marginTop: "10px" }} href="/pricing">Pricing</a></div></div>
                     <div className="icon_items"><div className="icon_itemc"> <a style={{ textDecoration: "none", color: "white", marginTop: "10px" }} href="/news">News</a></div></div>
                     {(sessionStorage.length === 0) && (<div className="icon_items"><div className="icon_itemc"><a style={{ textDecoration: "none", color: "white" }} href="/SignIn">SignIn</a></div></div>)}

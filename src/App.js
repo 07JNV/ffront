@@ -6,6 +6,7 @@ import Dashboard from './components/dashboard';
 import Stokes from './components/Stokes';
 import HomePage from './components/homepage.js';
 import Nav from "./components/navbar1.js"
+import News from './components/news.js';
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="pricing" element={<Stokes />} />
         <Route exact path="user/dashboard" element={<Dashboard />} />
         <Route exact path="/nav" element={<Nav />} />
+        <Route exact path="/news" element={<News />} />
       </Routes>
     </BrowserRouter>
   );
