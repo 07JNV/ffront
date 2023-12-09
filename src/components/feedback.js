@@ -1,4 +1,4 @@
-import "./styles/feedback.css"
+import "../styles/feedback.css"
 
 
 

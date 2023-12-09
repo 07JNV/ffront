@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './styles/Signup.css'
-import sdim from "./images/i3.png"
-import clogo from "./images/clogo.png"
+import '../styles/Signup.css'
+import sdim from "../images/i3.png"
+import clogo from "../images/clogo.png"
 import Nav from "./navbar1.js"
 
 
@@ -41,6 +41,10 @@ const SignUpForm = () => {
       const response = await fetch(url, requestOptions);
       console.log(response);
     }
+
+
+
+    
 
     func();
 

@@ -1,36 +1,36 @@
 
-import "./styles/navbar1.css"
-import comlogo from "./images/clogo.png"
+import "../styles/navbar1.css"
+import comlogo from "../images/clogo.png"
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-import menuicon from "./images/menu.png"
+import menuicon from "../images/menu.png"
 import { useState } from "react";
 
 function Nav() {
 
     const [show, setshow] = useState(false);
 
+    const navigate = useNavigate();
+
+
     const menubar = () => {
         setshow(!show);
     }
 
-    const navigate = useNavigate();
+
+
 
     const handleLogout = () => {
         sessionStorage.removeItem("email");
 
         if (sessionStorage.length === 0) {
             toast.info('You have successfully logged out.');
-
         }
+
         setTimeout(() => {
-            window.location.reload();
             navigate("/");
         }, 3000);
-
-
 
     }
 
@@ -48,14 +48,12 @@ function Nav() {
                 <div className="menuicon" onClick={menubar}>
                     <img src={menuicon} alt="#" />
                 </div>
-
                 <a className="aref" href="/home">Home</a>
-
                 <a className="aref" href="/contact">Contact</a>
                 <a className="aref" href="/pricing">Pricing</a>
                 <a className="aref" href="/news">News</a>
-                {(sessionStorage.length === 0) && (<a className="aref" href="/SignIn">SignIn</a>)}
-                {(sessionStorage.length > 0) && (<p className="aref" onClick={handleLogout}>Logout</p>)}
+                {(sessionStorage.length === 0) && (<a href="/SignIn"><button id="conbtn" className="aref">SignIn</button></a>)}
+                {(sessionStorage.length > 0) && (<p onClick={handleLogout}><button id="conbtn" className="aref">Logout</button></p>)}
             </div>
 
             {show && (

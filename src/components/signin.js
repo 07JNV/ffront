@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import './styles/Signup.css'
-import sdim from "./images/i3.png"
-import clogo from "./images/clogo.png"
+import '../styles/Signup.css'
+import sdim from "../images/i3.png"
+import clogo from "../images/clogo.png"
 import { useNavigate} from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -50,11 +50,12 @@ const SignUpForm = () => {
 
 
         if (Token) {
+            handleload();
             setLoad(false);
            setTimeout(() => {
             handleLogin();
             
-           }, 5000); 
+           }, 2300); 
             
         } else {
             setLoad(true);
@@ -112,7 +113,9 @@ const SignUpForm = () => {
 
             }
             if (!token) {
-
+                toast.error("wrong email or password", {
+                    position: toast.POSITION.TOP_LEFT
+                  });
             }
 
 

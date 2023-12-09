@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import "./styles/Crypto.css"
+import "../styles/Crypto.css"
 import { useNavigate } from "react-router-dom";
 
 function Crypto() {
