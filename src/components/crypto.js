@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import "../styles/Crypto.css"
 import { useNavigate } from "react-router-dom";
+import LiveChart from "./chart";
 
 function Crypto() {
 
@@ -14,7 +15,7 @@ function Crypto() {
     const [Cryall, setCryall] = useState(false);
 
     const [Hide, setHide] = useState(false);
-    const wid = Hide ? { width: "80%", backgroundColor: "#1b1b1b", color: "white", borderRadius: "10px",marginLeft:"10%" } : {};
+    const wid = Hide ? { width: "80%", backgroundColor: "grey", color: "white", borderRadius: "10px", marginLeft: "10%" } : {};
 
 
 
@@ -151,6 +152,40 @@ function Crypto() {
         fetchdata();
     }, [dep])
 
+    const [stockData, setStockData] = useState({})
+
+    const url = `https://alpha-vantage.p.rapidapi.com/query?symbol=BTC&function=TIME_SERIES_MONTHLY_ADJUSTED&datatype=json`;
+
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '50a855e6c3msh0af1e19cc3f0643p1cf167jsne33d87e559cf',
+            'X-RapidAPI-Host': 'alpha-vantage.p.rapidapi.com'
+        }
+    };
+
+
+    
+
+    const fetchDatas = async (api, opt) => {
+        try {
+            const response = await fetch(api, opt);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const data = await response.json();
+            setStockData(data);
+        } catch (error) {
+            console.error('Error fetching data:', error.message);
+
+        }
+    };
+
+
+    useEffect(() => {
+        fetchDatas(url, options)
+    }, []);
 
 
 
@@ -165,6 +200,15 @@ function Crypto() {
         setHide(!Hide);
     }
 
+    const [candle, setCandle] = useState(false);
+
+
+    const handleClick = (event) => {
+        const symbol = event.target.querySelector('.cname').textContent.trim();
+        console.log(symbol);
+    }
+
+
 
 
 
@@ -173,6 +217,7 @@ function Crypto() {
 
     return (
         <div className="cmb">
+
             {!Hide && (<div className="tb">
                 <p > Top trending Search</p>
             </div>)}
@@ -224,6 +269,7 @@ function Crypto() {
 
                             <div className="cprice">&#x20B9; {parseFloat(trend[2].item.price_btc).toFixed(2)} </div>
                         </div>)
+
                         : (<div className="mloader">
                             <p className="loader">
                             </p>
@@ -241,39 +287,46 @@ function Crypto() {
                 {Hide && (<p style={{ cursor: "pointer", color: "blue" }} onClick={showAll}> Hide</p>)}
             </div>
 
-            <ul style={wid} className="view_all_list">
-                {Hide && data.length > 0 && data.map((item, index) => (
-                    <div style={{ display: "flex", flexDirection: "row", fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif" }}>
-                        <div style={{ width: "50%", borderBottom: "2px solid white", marginTop: "10px" }}>
-                            <img style={{ marginLeft: "10px", marginTop: "10px", height: "58px", width: "auto" }} src={item.iconUrl} alt={item.name} />
-                            <p style={{ marginLeft: "10px" }}>{item.symbol}</p>
-                            <p style={{ marginLeft: "10px" }} > &#x20B9; {parseFloat(item.price).toFixed(2)}</p>
-                        </div>
-                        <div style={{ borderBottom: "2px solid white", width: "50%", fontWeight: "200" }}>
-                            <p> Rank: {item.rank}</p>
-                            <p> Name: {item.name}</p>
-                            {!res.hasOwnProperty(item.name) && <button style={{ borderRadius: "10px", background: "green", cursor: "pointer", height: "40px", width: "100px" }} onClick={() => handleBuy(item.name, parseFloat(item.price).toFixed(2))}>Buy Now</button>}
-                            {res.hasOwnProperty(item.name) && <p style={{ textAlign: "center" }}>purchased</p>}
-                        </div>
+
+
+            {Hide && data.length > 0 && data.map((item, index) => (
+                <div className="crypto_mb">
+                    <div style={{ width: "33.3333%", }}>
+                        <img style={{ marginLeft: "10px", marginTop: "10px", height: "58px", width: "auto" }} src={item.iconUrl} alt={item.name} />
+                        <p style={{ marginLeft: "10px" }}>{item.symbol}</p>
+                        <p style={{ marginLeft: "10px" }} > &#x20B9; {parseFloat(item.price).toFixed(2)}</p>
                     </div>
-                ))}
-            </ul>
+                    <div style={{ width: "33.3333%", fontWeight: "200" }}>
+                        <p> Rank: {item.rank}</p>
+                        <p> Name: {item.name}</p>
+                        {!res.hasOwnProperty(item.name) && <button style={{ borderRadius: "10px", background: "green", cursor: "pointer", height: "40px", width: "100px" }} onClick={() => handleBuy(item.name, parseFloat(item.price).toFixed(2))}>Buy Now</button>}
+                        {res.hasOwnProperty(item.name) && <p style={{ textAlign: "center" }}>purchased</p>}
+                    </div>
+                    <div className="grp">
+                        <LiveChart stockData={stockData} />
+                    </div>
+                </div>
+            ))}
+
+
 
 
             {!Hide && (<div className="tc">
                 <div className="ctc">
-                    {data.length > 0 ? (<div className="cdetail">
+                    {data.length > 0 ? (<div onClick={handleClick} className="cdetail">
                         <div className="img1">
                             <img id="img1" alt="Coin Icon" src={data[0].iconUrl} />
                         </div>
                         <div className="cname"> {data[0].symbol} </div>
 
                         <div className="cprice">&#x20B9; {parseFloat(data[0].price).toFixed(2)}</div>
+
                     </div>)
                         : (<div className="mloader">
                             <p className="loader">
                             </p>
                         </div>)}
+
 
                 </div>
                 <div className="ctc">
@@ -306,9 +359,18 @@ function Crypto() {
                             </p>
                         </div>)}
 
+
                 </div>
 
-            </div>)}
+               
+
+            </div>
+            )}
+
+            {!Hide && <div className="mdl"><LiveChart stockData={stockData} /></div>}
+
+
+
         </div>
     );
 
