@@ -117,9 +117,9 @@ const Dashboard = () => {
 
             {sessionStorage.length > 0 && (<div className="pinfo">
                 <img id="upic" src={pp} alt="#" />
-                {sessionStorage.length > 0 && (<div className="info" style={{fontFamily:"cursive"}}><h3>Hello, {info.fullName}</h3></div>)}
-                {sessionStorage.length > 0 && (<div className="info" style={{fontFamily:"cursive"}}>Email:  {info.email}</div>)}
-                {sessionStorage.length > 0 && (<div className="info" style={{fontFamily:"cursive"}}>Amount Left: {info.totalamount}</div>)}
+                {sessionStorage.length > 0 && (<div className="info" style={{fontFamily:"Robota"}}><h3>Hello, {info.fullName}</h3></div>)}
+                {sessionStorage.length > 0 && (<div className="info" style={{fontFamily:"Robota"}}>Email:  {info.email}</div>)}
+                {sessionStorage.length > 0 && (<div className="info" style={{fontFamily:"Robota"}}>Amount Left: {info.totalamount}</div>)}
             </div>)}
 
 
