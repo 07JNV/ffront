@@ -3,16 +3,25 @@ import '../styles/Signup.css'
 import sdim from "../images/i3.png"
 import clogo from "../images/clogo.png"
 import Nav from "./navbar1.js"
+import { useNavigate} from "react-router-dom";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SignUpForm = () => {
+
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: '',
   });
 
-  const back = process.env.REACT_APP_URL;
+  const back = "https://trade-backend-0823.onrender.com";
+  // const back = "http://localhost:8000";
+    // const back="http://localhost:8000";
+    
 
   const url = back + "/users/signup";
 
@@ -34,12 +43,32 @@ const SignUpForm = () => {
       body: JSON.stringify(formData)
     };
 
+    
+
+
 
 
     const func = async () => {
 
       const response = await fetch(url, requestOptions);
-      console.log(response);
+      const response_data=await response.json();
+      if(response_data.token){
+        toast.success('Register successfully', {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 2000 // Auto close the toast after 3 seconds
+        });
+
+        
+
+      
+         setTimeout(() => {
+          navigate("/signin")
+        }, 2300);
+      }else{
+        toast.error("unable to register please try again", {
+          position: toast.POSITION.TOP_LEFT
+        });
+      }
     }
 
 
@@ -57,7 +86,7 @@ const SignUpForm = () => {
         <div className='credIp'>
           <h2 className='signhd'>Registration form</h2>
           <div className='logo'>
-            <img id='clogo' src={clogo} />
+            <img id='clogo' src={clogo} alt='#' />
           </div>
           <form onSubmit={handleSubmit}>
             <div className='username'>

@@ -78,10 +78,13 @@ function Crypto() {
     // doing buying part
 
 
-    const url2 = process.env.REACT_APP_URL;
+    const url2="https://trade-backend-0823.onrender.com";
     const navigate = useNavigate();
 
-    const [res, setres] = useState({});
+    const [res, setres] = useState({key:"value"});
+
+    // console.log(typeof(res));
+    
     const email = sessionStorage.getItem("email");
 
     const [dep, setDep] = useState(0)
@@ -100,7 +103,11 @@ function Crypto() {
             const response = await fetch(url1, requestOptions);
             const data = await response.json();
 
-            setres(data.user.crypto);
+            console.log(data);
+            
+
+            setres(data.user.pre);
+            
 
         }
         catch (error) {
@@ -112,8 +119,8 @@ function Crypto() {
 
 
 
-    const handleBuy = async (name, price) => {
-        const att = { "email": email, "price": price };
+    const handleBuy = async (name, link,symbol,price) => {
+        const att = { "email": email, "symbol":symbol,"price": price,"link":link };
         console.log(name);
 
         if (sessionStorage.length > 0) {
@@ -151,6 +158,12 @@ function Crypto() {
     useEffect(() => {
         fetchdata();
     }, [dep])
+
+
+
+    // if(Object.keys(res).length){
+    //     setres({key:"value"});
+    // }
 
     const [stockData, setStockData] = useState({})
 
@@ -191,7 +204,7 @@ function Crypto() {
 
 
 
-
+console.log("resis",res);
 
 
 
@@ -207,6 +220,7 @@ function Crypto() {
         const symbol = event.target.querySelector('.cname').textContent.trim();
         console.log(symbol);
     }
+
 
 
 
@@ -299,8 +313,8 @@ function Crypto() {
                     <div style={{ width: "33.3333%", fontWeight: "200" }}>
                         <p> Rank: {item.rank}</p>
                         <p> Name: {item.name}</p>
-                        {!res.hasOwnProperty(item.name) && <button style={{ borderRadius: "10px", background: "green", cursor: "pointer", height: "40px", width: "100px" }} onClick={() => handleBuy(item.name, parseFloat(item.price).toFixed(2))}>Buy Now</button>}
-                        {res.hasOwnProperty(item.name) && <p style={{ textAlign: "center" }}>purchased</p>}
+                        {!res.hasOwnProperty(item.symbol) && <button style={{ borderRadius: "10px", background: "green", cursor: "pointer", height: "40px", width: "100px" }} onClick={() => handleBuy(item.name, item.iconUrl,item.symbol,parseFloat(item.price).toFixed(2))}>Buy Now</button> }
+                        {res.hasOwnProperty(item.symbol) && <p style={{ textAlign: "center" }}>purchased</p>}
                     </div>
                     <div className="grp">
                         <LiveChart stockData={stockData} />

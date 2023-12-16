@@ -67,16 +67,18 @@ const SignUpForm = () => {
     }, [Token])
 
 
-    console.log(load);
-
-
-    const notify = () => toast("Wow so easy!");
+    // console.log(load);
 
 
 
-    const back = process.env.REACT_APP_URL;
+
+
+    const back = "https://trade-backend-0823.onrender.com";
+    // const back="http://localhost:8000";
+    // console.log(back);
 
     const url = back + "/users/signin";
+    // console.log(back)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -133,7 +135,7 @@ const SignUpForm = () => {
                 <div className='credIp'>
                     <h2 className='signhd'>LOGIN </h2>
                     <div className='logo'>
-                        <img id='clogo' src={clogo} />
+                        <img id='clogo' src={clogo}  alt='#'/>
                     </div>
                     <form onSubmit={handleSubmit}>
                         <div className='email'>

@@ -4,14 +4,17 @@ import "../styles/dashboard.css"
 import pp from "../images/profilepic.png"
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import LiveChart from "./chart";
+
+import Footer from "./footer"
 
 
 
 const Dashboard = () => {
-
+    const [stockData, setStockData] = useState({})
     const [info, setinfo] = useState([]);
 
-    const [c, setc] = useState({})
+    const [c, setc] = useState([])
 
 
     const url1 = process.env.REACT_APP_URL;
@@ -47,7 +50,6 @@ const Dashboard = () => {
 
             setinfo(data.user);
             setc(data.user.crypto)
-            console.log(data.user.crypto)
 
         }
         catch (error) {
@@ -56,21 +58,52 @@ const Dashboard = () => {
     }
 
 
+    const url = `https://alpha-vantage.p.rapidapi.com/query?symbol=BTC&function=TIME_SERIES_MONTHLY_ADJUSTED&datatype=json`;
+
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '50a855e6c3msh0af1e19cc3f0643p1cf167jsne33d87e559cf',
+            'X-RapidAPI-Host': 'alpha-vantage.p.rapidapi.com'
+        }
+    };
+
+    const fetchDatas = async (api, opt) => {
+        try {
+            const response = await fetch(api, opt);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const data = await response.json();
+            setStockData(data);
+        } catch (error) {
+            console.error('Error fetching data:', error.message);
+
+        }
+    }
+
+    console.log("stodatais", stockData)
 
 
+
+    useEffect(() => {
+        fetchDatas(url, options)
+    }, []);
 
 
 
 
     useEffect(() => {
         fetchinfo();
-
-
     }, [])
 
-    console.log(c);
+    console.log(Object.keys(c).length);
 
-    console.log(info)
+    // console.log(info)
+    const originalDateString = "2023-12-16T00:00:00.000Z";
+    const originalDate = new Date(originalDateString);
+    console.log(originalDate);
 
 
 
@@ -84,44 +117,70 @@ const Dashboard = () => {
 
             {sessionStorage.length > 0 && (<div className="pinfo">
                 <img id="upic" src={pp} alt="#" />
-                {sessionStorage.length > 0 && (<div className="info">Name:   {info.fullName}</div>)}
-                {sessionStorage.length > 0 && (<div className="info">Email:  {info.email}</div>)}
-                {sessionStorage.length > 0 && (<div className="info">Amount Left: {info.totalamount}</div>)}
+                {sessionStorage.length > 0 && (<div className="info" style={{fontFamily:"cursive"}}><h3>Hello, {info.fullName}</h3></div>)}
+                {sessionStorage.length > 0 && (<div className="info" style={{fontFamily:"cursive"}}>Email:  {info.email}</div>)}
+                {sessionStorage.length > 0 && (<div className="info" style={{fontFamily:"cursive"}}>Amount Left: {info.totalamount}</div>)}
             </div>)}
 
 
 
             {sessionStorage.length && (<div className="mb1">
-                <div className="mb1-child">
-                    hello
-                </div>
-                <div className="mb1-child">
-                    hello
-                </div>
-                <div className="mb1-child">
-                    hello
-                </div>
+                {Object.keys(c).length > 0 && (<div className="mb1-child">
+
+                    <div className="coin_icon">
+                        <img id="coin_icon" alt="#" src={c[0].link} />
+                    </div>
+                    <div className="coin_name">
+                        {c[0].symbol}
+                    </div>
+                    <div className="pdate">
+
+                        PurchaseDate: {c[0].date.slice(0, 9)}
+                    </div>
+                    <div className="ptime">
+
+                        PurchaseTime:  {c[0].time.slice(0, 9)}
+                    </div>
+
+
+
+
+                </div>)}
+                {Object.keys(c).length > 1 && (<div className="mb1-child">
+                    <div className="coin_icon">
+                        <img id="coin_icon" alt="#" src={c[1].link} />
+                    </div>
+                    <div className="coin_name">
+                        {c[1].symbol}
+                    </div>
+                    <div className="pdate">
+
+                        PurchaseDate: {c[1].date.slice(0, 9)}
+                    </div>
+                    <div className="ptime">
+
+                        PurchaseTime:  {c[1].time.slice(0, 9)}
+                    </div>
+
+
+                </div>)}
+
+
 
             </div>)}
 
             {sessionStorage.length && (<div className="mb2">
                 <div className="mb2-child1">
-
+                    <LiveChart stockData={stockData} />
                 </div>
                 <div className="mb2-child2">
 
                 </div>
 
             </div>)}
-            {sessionStorage.length && (<div className="mb3">
-                <div className="mb3-child1">
 
-                </div>
-                <div className="mb3-child2">
+            <Footer/>
 
-                </div>
-
-            </div>)}
         </div>
     </>);
 
